@@ -10,7 +10,8 @@ fun Navigation(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.UpperArmScreen.route){
         composable(
-            route = Screen.UpperArmScreen.route){
+            route = Screen.UpperArmScreen.route
+        ){
             UpperArmScreen(navController = navController)
         }
         composable(
@@ -21,6 +22,7 @@ fun Navigation(){
         composable(
             route = Screen.WristScreen.route
         ){
+            WristScreen(navController = navController)
 
         }
     }

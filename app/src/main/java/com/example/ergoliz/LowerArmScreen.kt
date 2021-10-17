@@ -124,7 +124,9 @@ fun LowerArmScreen(navController: NavController){
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Alt Kol Skoru: $lowerArmScore")
-            
+
+            Spacer(modifier = Modifier.height(20.dp))
+
             Button(onClick = { navController.navigate(Screen.WristScreen.route) }) {
                 Text(text = "Onayla")
                 
