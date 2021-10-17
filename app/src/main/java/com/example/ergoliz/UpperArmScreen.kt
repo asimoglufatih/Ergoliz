@@ -40,6 +40,7 @@ fun UpperArmScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        //OutLinedText ve DropdownMenu için ayrı Column
         Column(modifier = Modifier.padding(20.dp)) {
 
             var expanded by remember { mutableStateOf(false) }
@@ -98,10 +99,13 @@ fun UpperArmScreen(navController: NavController) {
                 }
             }
         }
+
+        Spacer(modifier = Modifier.height(30.dp))
+            //Switchler için ayrı column
             Column(
                 modifier = Modifier.padding(20.dp)
             ) {
-                Spacer(modifier = Modifier.height(30.dp))
+
                 Text(
                     text = "Lütfen aşağıdaki seçenekleri ayrı ayrı değerlendirerek işaretleyiniz.")
                 Spacer(modifier = Modifier.height(30.dp))
@@ -109,9 +113,9 @@ fun UpperArmScreen(navController: NavController) {
                 val upperArmSwitch2 = remember { mutableStateOf(false) }
                 val upperArmSwitch3 = remember { mutableStateOf(false) }
 
-                var upperArmSwitch1Score = if(upperArmSwitch1.value){ 1} else 0
-                var upperArmSwitch2Score = if(upperArmSwitch2.value){ 1} else 0
-                var upperArmSwitch3Score = if(upperArmSwitch3.value){ -1} else 0
+                val upperArmSwitch1Score = if(upperArmSwitch1.value){ 1} else 0
+                val upperArmSwitch2Score = if(upperArmSwitch2.value){ 1} else 0
+                val upperArmSwitch3Score = if(upperArmSwitch3.value){ -1} else 0
 
                 upperArmScore = outLinedTextFieldScore + upperArmSwitch1Score +
                         upperArmSwitch2Score + upperArmSwitch3Score
@@ -156,9 +160,10 @@ fun UpperArmScreen(navController: NavController) {
                     )
                 }
             }
-            
 
             Spacer(modifier = Modifier.height(30.dp))
+
+        //Üst kol skoru ve alt kol geçiş butonu için ayrı column
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()

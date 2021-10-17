@@ -9,13 +9,19 @@ import androidx.navigation.compose.rememberNavController
 fun Navigation(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.UpperArmScreen.route){
-        composable(route = Screen.UpperArmScreen.route){
+        composable(
+            route = Screen.UpperArmScreen.route){
             UpperArmScreen(navController = navController)
         }
         composable(
             route = Screen.LowerArmScreen.route
         ){
-            LowerArmScreen()
+            LowerArmScreen(navController = navController)
+        }
+        composable(
+            route = Screen.WristScreen.route
+        ){
+
         }
     }
 }
