@@ -3,16 +3,15 @@ package com.example.ergoliz
 class Tables {
 
 
-
-
     companion object elementsOftableA{
 
         var upperArmScore: Int = 0
         var lowerArmScore: Int = 0
         var wristPositionScore: Int= 0
         var wristTwistScore: Int = 0
+        var tableAScore = 0
 
-        val tableA = arrayOf(
+        private val tableA = arrayOf(
             arrayOf(
                 arrayOf(1,2,2,2,2,3,3,3),
                 arrayOf(2,2,2,2,3,3,3,3),
@@ -41,8 +40,8 @@ class Tables {
 
         fun calculateTableAScore(): Int {
 
-            val lastArray= (2 * wristPositionScore) + (wristTwistScore - 1)
-            val tableAScore = tableA[upperArmScore][lowerArmScore][wristPositionScore] + (lastArray)
+            val lastArray= (2 * (wristPositionScore - 1)) + (wristTwistScore - 1)
+            tableAScore = tableA[upperArmScore - 1][lowerArmScore - 1][lastArray]
 
             return tableAScore
         }

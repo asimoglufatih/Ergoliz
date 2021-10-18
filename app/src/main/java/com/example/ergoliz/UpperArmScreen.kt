@@ -177,7 +177,7 @@ fun UpperArmScreen(navController: NavController) {
 
                 Button(
                     onClick = {
-                        Tables.upperArmScore = upperArmScore - 1
+                        Tables.upperArmScore = upperArmScore
                         navController.navigate(Screen.LowerArmScreen.route) },
 
                 ) {

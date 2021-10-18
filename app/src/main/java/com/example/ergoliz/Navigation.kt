@@ -23,7 +23,12 @@ fun Navigation(){
             route = Screen.WristScreen.route
         ){
             WristScreen(navController = navController)
-
         }
+        composable(
+            route = Screen.ShowTableAScreen.route
+        ){
+            ShowTableAScreen(navController = navController)
+        }
+
     }
 }

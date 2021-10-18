@@ -130,7 +130,7 @@ fun LowerArmScreen(navController: NavController){
             Spacer(modifier = Modifier.height(20.dp))
 
             Button(onClick = {
-                Tables.lowerArmScore = lowerArmScore - 1
+                Tables.lowerArmScore = lowerArmScore
                 navController.navigate(Screen.WristScreen.route) }) {
                 Text(text = "Onayla")
                 

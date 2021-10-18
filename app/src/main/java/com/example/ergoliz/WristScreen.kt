@@ -28,7 +28,6 @@ fun WristScreen(navController: NavController){
 
     Column {
 
-        var tableAScore = 0
         var wristPositionScore = 0
         var outLinedTextFieldScore = 0
         var wristTwistScore = 0
@@ -163,17 +162,16 @@ fun WristScreen(navController: NavController){
             Spacer(modifier = Modifier.height(20.dp))
 
             Button(onClick = {
-                Tables.wristPositionScore = wristPositionScore - 1
+                Tables.wristPositionScore = wristPositionScore
                 Tables.wristTwistScore = wristTwistScore
-                tableAScore = Tables.calculateTableAScore()
-                Log.d("tablo A", tableAScore.toString())
+                Tables.tableAScore = Tables.calculateTableAScore()
+                navController.navigate(Screen.ShowTableAScreen.route)
+                Log.d("tablo A", Tables.tableAScore.toString())
             }) {
                 
                 Text(text = "Onayla")
                 
             }
-
-            Text(text = "Tablo A Skoru: $tableAScore")
             
         }
     }
