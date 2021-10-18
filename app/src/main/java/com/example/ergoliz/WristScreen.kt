@@ -1,5 +1,6 @@
 package com.example.ergoliz
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -16,21 +17,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavController
+import com.example.ergoliz.Tables
 
 @Composable
 fun WristScreen(navController: NavController){
 
     Column {
 
-        var wristScreenScore = 0
+        var tableAScore = 0
+        var wristPositionScore = 0
         var outLinedTextFieldScore = 0
+        var wristTwistScore = 0
+
 
         Text(
             text = "Etap 3: Bilek Pozisyonunu Bulun.",
-            modifier = Modifier.padding(30.dp),
+            modifier = Modifier.padding(10.dp),
             style = MaterialTheme.typography.h5)
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -107,7 +113,7 @@ fun WristScreen(navController: NavController){
 
             var wristScreenSwitchScore = if (wristScreenSwitch.value) 1 else 0
             
-            wristScreenScore = wristScreenSwitchScore + outLinedTextFieldScore
+            wristPositionScore = wristScreenSwitchScore + outLinedTextFieldScore
             
             Row(verticalAlignment = Alignment.CenterVertically) {
                 
@@ -123,21 +129,51 @@ fun WristScreen(navController: NavController){
         }
         
         Spacer(modifier = Modifier.height(30.dp))
+
+        Text(
+            text = "Etap 4: Bilek Bükülme Hareketini Bulun.",
+            modifier = Modifier.padding(10.dp),
+            style = MaterialTheme.typography.h5)
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Column(modifier = Modifier.padding(20.dp)) {
+
+            wristTwistScore = WristTwist()
+        }
+        
+        Spacer(modifier = Modifier.height(20.dp))
         
         //wristScreenScore ve buton için ayrı Column
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Bilek Skoru $wristScreenScore")
+            
+            Row(verticalAlignment = Alignment.CenterVertically) {
+
+                Text(text = "Bilek Skoru $wristPositionScore")
+
+                Spacer(modifier = Modifier.width(20.dp))
+
+                Text(text = "Bilek Bükülme Skoru $wristTwistScore")
+
+            }
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            Button(onClick = { /*TODO*/ }) {
+            Button(onClick = {
+                Tables.wristPositionScore = wristPositionScore - 1
+                Tables.wristTwistScore = wristTwistScore
+                tableAScore = Tables.calculateTableAScore()
+                Log.d("tablo A", tableAScore.toString())
+            }) {
                 
                 Text(text = "Onayla")
                 
             }
+
+            Text(text = "Tablo A Skoru: $tableAScore")
             
         }
     }

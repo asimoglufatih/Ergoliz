@@ -176,7 +176,9 @@ fun UpperArmScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Button(
-                    onClick = { navController.navigate(Screen.LowerArmScreen.route) },
+                    onClick = {
+                        Tables.upperArmScore = upperArmScore - 1
+                        navController.navigate(Screen.LowerArmScreen.route) },
 
                 ) {
                     Text(text = "Onayla")

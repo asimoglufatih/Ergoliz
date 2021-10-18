@@ -12,20 +12,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavController
 
 @Composable
 fun LowerArmScreen(navController: NavController){
-    
+
+
     Column() {
 
         var lowerArmScore = 0
         var outLinedTextFieldScore = 0
 
         Text(
-            text = "Etap 2: Alt Kol Pozisyonlarını Bulun.",
+            text = stringResource(R.string.etap2MainTitle),
             modifier = Modifier.padding(10.dp),
             style = MaterialTheme.typography.h5)
 
@@ -127,7 +129,9 @@ fun LowerArmScreen(navController: NavController){
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            Button(onClick = { navController.navigate(Screen.WristScreen.route) }) {
+            Button(onClick = {
+                Tables.lowerArmScore = lowerArmScore - 1
+                navController.navigate(Screen.WristScreen.route) }) {
                 Text(text = "Onayla")
                 
             }
