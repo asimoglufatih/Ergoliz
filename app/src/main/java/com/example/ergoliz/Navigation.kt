@@ -29,6 +29,21 @@ fun Navigation(){
         ){
             ShowTableAScreen(navController = navController)
         }
+        composable(
+            route = Screen.FindRowInTableCScreen.route
+        ){
+            FindRowInTableCScreen(navController = navController)
+        }
+        composable(
+            route = Screen.NeckPositionScreen.route
+        ){
+            NeckPositionScreen(navController = navController)
+        }
+        composable(
+                route = Screen.TrunkPositionScreen.route
+                ){
+            TrunkPositionScreen(navController = navController)
+        }
 
     }
 }

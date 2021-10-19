@@ -17,11 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavController
-import com.example.ergoliz.Tables
 
 @Composable
 fun WristScreen(navController: NavController){
@@ -162,11 +160,12 @@ fun WristScreen(navController: NavController){
             Spacer(modifier = Modifier.height(20.dp))
 
             Button(onClick = {
-                Tables.wristPositionScore = wristPositionScore
-                Tables.wristTwistScore = wristTwistScore
-                Tables.tableAScore = Tables.calculateTableAScore()
-                navController.navigate(Screen.ShowTableAScreen.route)
-                Log.d("tablo A", Tables.tableAScore.toString())
+                if (wristPositionScore > 0 && wristTwistScore > 0){
+                    TableA.wristPositionScore = wristPositionScore
+                    TableA.wristTwistScore = wristTwistScore
+                    TableA.tableAScore = TableA.calculateTableAScore()
+                    navController.navigate(Screen.ShowTableAScreen.route)
+                }
             }) {
                 
                 Text(text = "Onayla")

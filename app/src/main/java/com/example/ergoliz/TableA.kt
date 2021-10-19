@@ -1,6 +1,6 @@
 package com.example.ergoliz
 
-class Tables {
+class TableA {
 
 
     companion object elementsOftableA{
@@ -47,6 +47,7 @@ class Tables {
         }
 
     }
+
 
 
 

@@ -1,5 +1,6 @@
 package com.example.ergoliz
 
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -14,20 +15,22 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 
 
 @Composable
 fun UpperArmScreen(navController: NavController) {
 
     Column {
+
+        //Toast mesajı için oluşturuldu.
+        val context = LocalContext.current
 
         var upperArmScore = 0
         var outLinedTextFieldScore = 0
@@ -131,7 +134,6 @@ fun UpperArmScreen(navController: NavController) {
                     Text(
                         text = "Omuzlar kaldırıldı mı?"
                     )
-                    Spacer(modifier = Modifier.width(40.dp))
 
                 }
                 Row (
@@ -175,10 +177,16 @@ fun UpperArmScreen(navController: NavController) {
 
                 Spacer(modifier = Modifier.height(20.dp))
 
+
+
                 Button(
                     onClick = {
-                        Tables.upperArmScore = upperArmScore
-                        navController.navigate(Screen.LowerArmScreen.route) },
+                        if (upperArmScore > 0){
+                            TableA.upperArmScore = upperArmScore
+                            navController.navigate(Screen.LowerArmScreen.route)
+                        }else
+                            Toast.makeText(context,"Lütfen eksik yerleri doldurunuz.",Toast.LENGTH_SHORT)
+                         },
 
                 ) {
                     Text(text = "Onayla")

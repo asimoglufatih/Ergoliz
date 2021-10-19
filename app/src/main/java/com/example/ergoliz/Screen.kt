@@ -4,5 +4,8 @@ sealed class Screen(val route: String){
     object UpperArmScreen: Screen("upper_arm_screen")
     object LowerArmScreen: Screen("lower_arm_screen")
     object WristScreen: Screen("wrist_screen")
-    object ShowTableAScreen: Screen("table_A_screen")
+    object ShowTableAScreen: Screen("table_a_screen")
+    object FindRowInTableCScreen: Screen("table_c_row_screen")
+    object NeckPositionScreen: Screen("neck_position_screen")
+    object TrunkPositionScreen: Screen("trunk_position_screen")
 }

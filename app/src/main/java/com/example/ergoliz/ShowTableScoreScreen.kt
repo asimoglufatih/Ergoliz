@@ -1,12 +1,8 @@
 package com.example.ergoliz
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,23 +13,25 @@ import androidx.navigation.NavController
 fun ShowTableAScreen(navController: NavController){
     
     Column(
-        modifier = Modifier.padding(20.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally) {
         
         Spacer(modifier = Modifier.height(20.dp))
         
-        Text(text = "Üst Kol Pozisyonu Skoru: ${Tables.upperArmScore}")
-        Text(text = "Alt Kol Pozisyonu Skoru: ${Tables.lowerArmScore}")
-        Text(text = "Bilek Skoru: ${Tables.wristPositionScore}")
-        Text(text = "Bilek Bükülme Skoru: ${Tables.wristTwistScore}")
+        Text(text = "Üst Kol Pozisyonu Skoru: ${TableA.upperArmScore}")
+        Text(text = "Alt Kol Pozisyonu Skoru: ${TableA.lowerArmScore}")
+        Text(text = "Bilek Skoru: ${TableA.wristPositionScore}")
+        Text(text = "Bilek Bükülme Skoru: ${TableA.wristTwistScore}")
         
         Spacer(modifier = Modifier.height(10.dp))
         
-        Text(text = "Tablo A Skoru: ${Tables.tableAScore}")
+        Text(text = "Tablo A Skoru: ${TableA.tableAScore}")
         
         Spacer(modifier = Modifier.height(30.dp))
         
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { navController.navigate(Screen.FindRowInTableCScreen.route)}) {
             
             Text(text = "Onayla")
             
