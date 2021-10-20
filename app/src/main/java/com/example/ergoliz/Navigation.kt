@@ -40,9 +40,19 @@ fun Navigation(){
             NeckPositionScreen(navController = navController)
         }
         composable(
-                route = Screen.TrunkPositionScreen.route
-                ){
+            route = Screen.TrunkPositionScreen.route
+        ){
             TrunkPositionScreen(navController = navController)
+        }
+        composable(
+            route = Screen.ShowTableBScreen.route
+        ){
+            ShowTableBScreen(navController = navController)
+        }
+        composable(
+            route = Screen.FindColumnInTableCScreen.route
+        ){
+            FindColumnInTableCScreen(navController = navController)
         }
 
     }

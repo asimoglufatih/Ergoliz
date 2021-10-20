@@ -40,3 +40,34 @@ fun ShowTableAScreen(navController: NavController){
     }
 
 }
+
+@Composable
+fun ShowTableBScreen(navController: NavController){
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally) {
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(text = "Boyun Pozisyonu Skoru: ${TableB.neckScore}")
+        Text(text = "Gövde Pozisyonu Skoru: ${TableB.trunkScore}")
+        Text(text = "Bacak Pozisyonu Skoru: ${TableB.legScore}")
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Text(text = "Tablo B Skoru: ${TableB.tableBScore}")
+
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Button(onClick = { navController.navigate(Screen.FindColumnInTableCScreen.route)}) {
+
+            Text(text = "Onayla")
+
+        }
+
+    }
+
+}
