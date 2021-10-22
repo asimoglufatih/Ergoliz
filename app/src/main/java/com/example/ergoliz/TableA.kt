@@ -38,12 +38,11 @@ class TableA {
                 arrayOf(9,9,9,9,9,9,9,9)),
         )
 
-        fun calculateTableAScore(): Int {
+        fun calculateTableAScore(){
 
             val lastArray= (2 * (wristPositionScore - 1)) + (wristTwistScore - 1)
             tableAScore = tableA[upperArmScore - 1][lowerArmScore - 1][lastArray]
 
-            return tableAScore
         }
 
     }

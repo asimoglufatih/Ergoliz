@@ -35,6 +35,10 @@ class TableB {
                 arrayOf(7,7,7,8,8,9)
             )
         )
+
+        fun calculateTableBScore(){
+            tableBScore = tableB[trunkScore - 1][legScore - 1][neckScore - 1]
+        }
     }
 
 }

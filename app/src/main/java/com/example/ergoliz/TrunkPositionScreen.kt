@@ -20,7 +20,7 @@ fun TrunkPositionScreen(navController: NavController){
     Column() {
 
         var trunkPositionScore = 0
-        //gövde skoru için
+        //outlinedtextfield'den gelen gövde skoru için
         var outLinedTextFieldScore = 0
         //bacak skoru için
         var legPositionScore = 0
@@ -70,6 +70,7 @@ fun TrunkPositionScreen(navController: NavController){
             val Switch1Score = if (Switch1.value) {
                 1
             } else 0
+
             val Switch2Score = if (Switch2.value) {
                 1
             } else 0
@@ -134,17 +135,16 @@ fun TrunkPositionScreen(navController: NavController){
 
             Button(onClick = {
                 if (trunkPositionScore > 0 && legPositionScore > 0) {
-                    TableB.neckScore = trunkPositionScore
+                    TableB.trunkScore = trunkPositionScore
                     TableB.legScore = legPositionScore
-                    navController.navigate(Screen.TrunkPositionScreen.route)
+                    TableB.calculateTableBScore()
+                    navController.navigate(Screen.ShowTableBScreen.route)
                 }
             }) {
 
                 Text(text = "Onayla")
 
             }
-
-
         }
     }
 

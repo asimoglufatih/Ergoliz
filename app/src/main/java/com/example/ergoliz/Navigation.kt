@@ -54,6 +54,11 @@ fun Navigation(){
         ){
             FindColumnInTableCScreen(navController = navController)
         }
+        composable(
+            route = Screen.ShowTableCScreen.route
+        ){
+            ShowTableCScreen(navController = navController)
+        }
 
     }
 }

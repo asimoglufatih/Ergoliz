@@ -163,7 +163,7 @@ fun WristScreen(navController: NavController){
                 if (wristPositionScore > 0 && wristTwistScore > 0){
                     TableA.wristPositionScore = wristPositionScore
                     TableA.wristTwistScore = wristTwistScore
-                    TableA.tableAScore = TableA.calculateTableAScore()
+                    TableA.calculateTableAScore()
                     navController.navigate(Screen.ShowTableAScreen.route)
                 }
             }) {

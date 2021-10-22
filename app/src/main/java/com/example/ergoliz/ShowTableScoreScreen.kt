@@ -42,13 +42,14 @@ fun ShowTableAScreen(navController: NavController){
 }
 
 @Composable
-fun ShowTableBScreen(navController: NavController){
+fun ShowTableBScreen(navController: NavController) {
 
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -62,7 +63,39 @@ fun ShowTableBScreen(navController: NavController){
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        Button(onClick = { navController.navigate(Screen.FindColumnInTableCScreen.route)}) {
+        Button(onClick = { navController.navigate(Screen.FindColumnInTableCScreen.route) }) {
+
+            Text(text = "Onayla")
+
+        }
+
+    }
+
+}
+
+
+@Composable
+fun ShowTableCScreen(navController: NavController){
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally) {
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(text = "Tablo C satır skoru: ${TableC.rowOfTableC}")
+        Text(text = "Tablo C sütun skoru: ${TableC.columnOfTableC}")
+
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Text(text = "RULA Skoru: ${TableC.tableCScore}")
+
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Button(onClick = { navController.navigate(Screen.FindRowInTableCScreen.route)}) {
 
             Text(text = "Onayla")
 

@@ -10,5 +10,6 @@ sealed class Screen(val route: String){
     object TrunkPositionScreen: Screen("trunk_position_screen")
     object ShowTableBScreen: Screen("table_b_screen")
     object FindColumnInTableCScreen: Screen("table_c_column_screen")
+    object ShowTableCScreen: Screen("table_c_screen")
 
 }
