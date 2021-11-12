@@ -95,7 +95,7 @@ fun ShowTableCScreen(navController: NavController){
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        Button(onClick = { navController.navigate(Screen.FindRowInTableCScreen.route)}) {
+        Button(onClick = { navController.navigate(Screen.UpperArmScreen.route)}) {
 
             Text(text = "Onayla")
 
