@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.layout.onGloballyPositioned
@@ -71,7 +72,10 @@ fun FindRowInTableCScreen(navController: NavController){
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Column(modifier = Modifier.padding(20.dp)) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth()
+        ) {
 
             Text(text = "Kas kullanımı skoru: $outLinedTextFieldScore1")
             Text(text = "Uygulanan yük skoru: $outLinedTextFieldScore2")

@@ -1,13 +1,11 @@
 package com.example.ergoliz
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -69,7 +67,10 @@ fun FindColumnInTableCScreen(navController: NavController){
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Column(modifier = Modifier.padding(20.dp)) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth())
+             {
 
             Text(text = "Kas kullanımı skoru: $outLinedTextFieldScore1")
             Text(text = "Uygulanan yük skoru: $outLinedTextFieldScore2")
